@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="list-group" *ngFor="let item of learningList">
+    <a
+      [routerLink]="['/learnings', item.id]"
+      (learning)="(item)"
+      [queryParams]="{ redText: 'false' }"
+      routerLinkActive="router-link-active"
+      class="list-group-item-action"
+      >{{ item.name }}</a
+    >
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

@@ -3,16 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserComponent } from './user/user.component';
+import { LearningComponent } from './learning/learning.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { LearningDetailComponent } from './learning/learning-detail/learning-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserComponent,
+    LearningComponent,
+    NotFoundComponent,
+    UserDetailComponent,
+    WelcomeComponent,
+    LearningDetailComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
