@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { LearningDetailComponent } from './learning/learning-detail/learning-detail.component';
+import { RouteDataResolver } from './route-data-resolver.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { LearningDetailComponent } from './learning/learning-detail/learning-det
     LearningDetailComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  providers: [RouteDataResolver],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

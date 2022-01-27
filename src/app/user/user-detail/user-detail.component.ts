@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Data } from '@angular/router';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
 
@@ -9,7 +9,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-detail.component.css'],
 })
 export class UserDetailComponent implements OnInit {
-  @Input() user: User;
+  user: User;
   userId: number;
   redText: boolean;
   constructor(
@@ -20,6 +20,10 @@ export class UserDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.userId = +params['id'];
+    });
+
+    this.route.data.subscribe((data: Data) => {
+      this.user = data['user'];
     });
     this.route.queryParams.subscribe(
       (params) => (this.redText = params['redText'])

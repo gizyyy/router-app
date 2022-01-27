@@ -5,6 +5,7 @@ import { LearningDetailComponent } from './learning/learning-detail/learning-det
 import { LearningComponent } from './learning/learning.component';
 import { Learning } from './learning/learning.model';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { RouteDataResolver } from './route-data-resolver.service';
 import { UserCountGuardService } from './user-count-guard.service';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserComponent } from './user/user.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
         path: ':id',
         component: UserDetailComponent,
         canActivate: [UserCountGuardService],
+        resolve: { user: RouteDataResolver },
       },
     ],
   },
@@ -38,7 +40,11 @@ const routes: Routes = [
     ],
   },
   { path: 'welcome', component: WelcomeComponent },
-  { path: '**', component: NotFoundComponent },
+  {
+    path: '**',
+    component: NotFoundComponent,
+    data: { message: 'Page not found' },
+  },
 ];
 
 @NgModule({
